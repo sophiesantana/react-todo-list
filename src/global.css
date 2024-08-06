@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #1A1A1A;
+  --info: #4EA8DE;
+  --input-bg: #262626;
+  --input: #808080;
+}
