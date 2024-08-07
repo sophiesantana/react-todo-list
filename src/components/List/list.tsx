@@ -1,39 +1,45 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import Container from "../Container/container";
 import InfoTasks from "../InfoTasks/infoTasks";
+import { Tasks } from "../../interfaces/todoListInterface";
+import { useDeleteTaskMutation, useToggleDoneTaskMutation } from "../../hooks/mutations/tasks";
 
-export default function ListTasks() {
-  const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-  const [done, setDone] = useState<{ [key: number]: boolean }>({});
+interface ListTasksProps {
+  tasks: Tasks[];
+}
 
-  const handleClick = (index: number) => {
-    setDone((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }))
-  }
+export default function ListTasks({ tasks }: ListTasksProps) {
+  const totalDone = useMemo(() => {
+    return Object.values(tasks).filter(task => task.done).length
+  }, [tasks]);
+
+  const { mutate: toggleDoneTaskMutation } = useToggleDoneTaskMutation();
+  
+  const { mutate: deleteTaskMutation } = useDeleteTaskMutation();
 
   return (
     <>
-      <InfoTasks />
+      <InfoTasks totalDone={totalDone} tasks={tasks}/>
         <ul>
-          {items.map((item, index) => (
+          {tasks.map((task) => (
             <li
-              key={index}
+              key={task.id}
               className={
                 `w-736 h-14 bg-task mb-2 rounded-lg flex justify-between items-center
-                ${done[index] ? 'line-through text-input' : 'text-task-name'}`
+                ${task.done ? 'line-through text-input' : 'text-task-name'}`
               }
             >
               <Container customClass="flex">
-                <button onClick={() => handleClick(index)}>
-                  <img src={`./assets/images/${done[index] ? 'checked' : 'circle'}.png`}
+                <button onClick={() => toggleDoneTaskMutation(task)}>
+                  <img src={`./assets/images/${task.done ? 'checked' : 'circle'}.png`}
                   alt=""
                   className="size-7 mx-5"/>
                 </button>
-                {item}
+                {task.name}
               </Container>
-              <img src="./assets/images/trash.png" alt="" className="size-7 mx-5"/>
+              <button onClick={() => deleteTaskMutation(task)}>
+                <img src="./assets/images/trash.png" alt="" className="size-7 mx-5"/>
+              </button>
             </li>
           ))}
         </ul>

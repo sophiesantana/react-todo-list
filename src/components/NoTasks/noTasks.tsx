@@ -4,7 +4,7 @@ import InfoTasks from "../InfoTasks/infoTasks";
 export default function NoTasks() {
   return (
     <>
-      <InfoTasks />
+      <InfoTasks totalDone={0} tasks={[]}/>
       <Container customClass="w-full">
         <Container customClass="flex flex-col justify-between items-center rounded-lg border-t border-text text-input font-font-source-sans">
           <img src="./assets/images/Clipboard.png" alt="" className="mb-2 mt-16"/>

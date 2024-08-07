@@ -1,9 +1,11 @@
-interface ButtonProps {
-  customClass?: string;
-}
+import { forwardRef } from "react";
 
-export default function Input({ customClass }: ButtonProps) {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
-    <input type="text" name="" id="" placeholder="Adicione uma nova tarefa" className={customClass} />
+    <input type="text" name="" id="" placeholder="Adicione uma nova tarefa" ref={ref} {...props} />
   )
-}
+})
+
+export default Input;
