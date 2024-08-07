@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Projeto React com Vite, TypeScript e Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto configurado com Vite, React, Mutations, TypeScript e Tailwind CSS.
 
-Currently, two official plugins are available:
+## Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este é um projeto frontend que foi desenvolvido em conjunto com outro projeto [backend](https://github.com/sophiesantana/api-to-do-list).
 
-## Expanding the ESLint configuration
+#### As funcionalidades deste frontend incluem:
+- Cadastrar tasks;
+- Remover tasks;
+- Marcar tasks já feitas.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Pré-requisitos
 
-- Configure the top-level `parserOptions` property like this:
+Antes de começar, você vai precisar ter instalado em sua máquina:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Node.js** (versão 18 ou superior)
+- **npm** (geralmente instalado junto com o Node.js) ou **yarn** ao invés do npm.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Instalação
+
+1. **Clone o repositório:**
+
+   ```bash
+    git clone <URL-do-repositório>
+
+2. **Navegue até o diretório do projeto:**
+   ```bash
+    cd nome-do-repositorio
+
+3. **Instale as dependências:**
+    ```bash
+    npm install
+
+4. **Para iniciar o projeto:**
+    ```bash
+    npm run dev
+---
+
+**Agora use CTRL + click no link que aparecer no terminal ou copie e cole no navegador.**
+
+#
+
+#### Projeto desenvolvido por:
+> [Isis Sophie](https://www.linkedin.com/in/sophiesantana/)
