@@ -1,11 +1,23 @@
+import { useEffect, useState } from 'react'
 import Button from './components/Button/button'
 import Container from './components/Container/container'
 import Header from './components/Header/header'
 import Input from './components/Input/input'
 import NoTasks from './components/NoTasks/noTasks'
 import './global.css'
+import { Tasks } from './interfaces/todoListInterface'
+import { getTasks } from './services/todoListService'
+import ListTasks from './components/List/list'
 
 function App() {
+  //const [tasks, setTasks] = useState<Tasks[]>();
+  const [tasks, setTasks] = useState(1);
+
+  /* useEffect(() => {
+    getTasks()
+      .then((resp) => setTasks(resp));
+  }); */
+
   return (
     <>
       <Container customClass='bg-background w-full h-screen'>
@@ -23,7 +35,7 @@ function App() {
         </Container>
         <Container customClass='w-full flex justify-center'>
           <Container customClass='w-736 h-287 mt-72'>
-            <NoTasks />
+            { tasks ? <ListTasks /> : <NoTasks /> }
           </Container>
         </Container>
       </Container>

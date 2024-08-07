@@ -12,7 +12,9 @@ export default {
         'text': 'var(--text)',
         'info': 'var(--info)',
         'input': 'var(--input)',
-        'input-bg': 'var(--input-bg)'
+        'input-bg': 'var(--input-bg)',
+        'task': 'var(--task)',
+        'task-name': 'var(--task-name)'
       },
       fontSize: {
         '40': '40px',
